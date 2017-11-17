@@ -4,6 +4,6 @@ class PagesController < ApplicationController
   end
 
   def contact
-    @contact= Contact.all
+    @contact= Contact.all.first
   end
 end
