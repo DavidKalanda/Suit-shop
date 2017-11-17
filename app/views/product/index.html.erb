@@ -31,9 +31,33 @@
                 <%= link_to i.name, category_path(i), :class => "list-group-item"%>
             <% end %>
           </div>
-
+              <!-- <div class="input-group-btn search-panel">
+                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                  	<span id="search_concept">Filter by</span>
+                  </button>
+                  <ul class="dropdown-menu" role="menu">
+                    <li><a href="#Suits">Suits</a></li>
+                    <li><a href="#Ties">Ties</a></li>
+                    <li><a href="#Shirts">Shirts</a></li>
+                    <li class="divider"></li>
+                    <li><a href="#all">Anything</a></li>
+                  </ul>
+              </div>
+              <input type="hidden" name="search_param" value="all" id="search_param">
+              <input type="text" class="form-control" name="search_keywords" placeholder="Search term...">
+              <span class="input-group-btn">
+                  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+              </span> -->
+              <%= form_tag search_results_path, method: 'get' do %>
+                <%= text_field_tag :search_keywords %>
+                <%= select_tag "categories",
+                              options_from_collection_for_select(@categories, "id","name"),
+                              include_blank: true %>
+                <%= submit_tag "Search" %>
+              <% end %>
+              <!-- /.col-lg-3 -->
         </div>
-        <!-- /.col-lg-3 -->
+
 
         <div class="col-lg-9">
 
