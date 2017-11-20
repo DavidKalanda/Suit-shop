@@ -1,0 +1,17 @@
+<div class="col-lg-3">
+
+  <h1 class="my-4">Shop Name</h1>
+  <div class="list-group">
+    <% @categories.each do|i|%>
+        <%= link_to i.name, category_path(i), :class => "list-group-item"%>
+    <% end %>
+  </div>
+      <%= form_tag search_results_path, method: 'get' do %>
+        <%= text_field_tag :search_keywords %>
+        <%= select_tag "categories",
+                      options_from_collection_for_select(@categories, "id","name"),
+                      include_blank: true %>
+        <%= submit_tag "Search" %>
+      <% end %>
+      <!-- /.col-lg-3 -->
+</div>

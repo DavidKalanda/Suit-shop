@@ -9,54 +9,10 @@
     <meta name="author" content="">
 
     <title>Shop Homepage - Start Bootstrap Template</title>
-
-    <!-- Bootstrap core CSS -->
-    <!-- <link href="suit_shop/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
-
-    <!-- Custom styles for this template -->
-    <!-- <link href="suit_shop/app/assets/stylesheets/shop-homepage.css" rel="stylesheet"> -->
-
   </head>
   <body>
     <!-- Page Content -->
     <div class="container">
-
-      <div class="row">
-
-        <div class="col-lg-3">
-
-          <h1 class="my-4">Shop Name</h1>
-          <div class="list-group">
-            <% @categories.each do|i|%>
-                <%= link_to i.name, category_path(i), :class => "list-group-item"%>
-            <% end %>
-          </div>
-              <!-- <div class="input-group-btn search-panel">
-                  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                  	<span id="search_concept">Filter by</span>
-                  </button>
-                  <ul class="dropdown-menu" role="menu">
-                    <li><a href="#Suits">Suits</a></li>
-                    <li><a href="#Ties">Ties</a></li>
-                    <li><a href="#Shirts">Shirts</a></li>
-                    <li class="divider"></li>
-                    <li><a href="#all">Anything</a></li>
-                  </ul>
-              </div>
-              <input type="hidden" name="search_param" value="all" id="search_param">
-              <input type="text" class="form-control" name="search_keywords" placeholder="Search term...">
-              <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
-              </span> -->
-              <%= form_tag search_results_path, method: 'get' do %>
-                <%= text_field_tag :search_keywords %>
-                <%= select_tag "categories",
-                              options_from_collection_for_select(@categories, "id","name"),
-                              include_blank: true %>
-                <%= submit_tag "Search" %>
-              <% end %>
-              <!-- /.col-lg-3 -->
-        </div>
 
 
         <div class="col-lg-9">
@@ -67,36 +23,12 @@
               <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
               <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
             </ol>
-            <!-- <div class="carousel-inner" role="listbox">
-              <div class="carousel-item active">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="First slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Second slide">
-              </div>
-              <div class="carousel-item">
-                <img class="d-block img-fluid" src="http://placehold.it/900x350" alt="Third slide">
-              </div>
-            </div> -->
-            <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="sr-only">Next</span>
-            </a>
-          </div>
 
           <div class="row">
             <% @products.each do|product|%>
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <% if(product.image != "") %>
-                  <a href="#"><img class="card-img-top" src="<%=product.image %>" alt=""></a>
-                <% else %>
-                  <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
-                <% end %>
+                <a href="#"><img class="card-img-top" src="<%=product.image %>" alt=""></a>
                 <div class="card-body">
                   <h4 class="card-title">
                     <a href="/products/<%= product.id%>"><%= product.name%></a>
@@ -121,9 +53,6 @@
         <!-- /.col-lg-9 -->
 
       </div>
-      <!-- /.row -->
-
-    </div>
     <!-- /.container -->
 
 
