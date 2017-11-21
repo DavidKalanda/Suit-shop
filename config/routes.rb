@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'cart/index'
+
+  get 'cart/add'
+
   get 'pages/about'
 
   get 'pages/contact'
