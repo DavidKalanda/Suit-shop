@@ -5,6 +5,9 @@
     <% @categories.each do|i|%>
         <%= link_to i.name, category_path(i), :class => "list-group-item"%>
     <% end %>
+    <h4>Filter</h4>
+    <%= link_to 'New', new_path, :class => "list-group-item"%>
+    <%= link_to 'Recenty Updated', updated_path, :class => "list-group-item"%>
   </div>
       <%= form_tag search_results_path, method: 'get' do %>
         <%= text_field_tag :search_keywords %>
@@ -13,5 +16,7 @@
                       include_blank: true %>
         <%= submit_tag "Search" %>
       <% end %>
-      <!-- /.col-lg-3 -->
+  <div class="list-group">
+
+  </div>
 </div>

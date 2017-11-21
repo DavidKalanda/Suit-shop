@@ -6,6 +6,17 @@ class ProductController < ApplicationController
 
   def show
     @product= Product.find(params[:id])
+    @categories = Category.all
+  end
+
+  def new
+    @categories = Category.all
+    @new = Product.order("created_at DESC").page(params[:page]).per(6)
+  end
+
+  def updated
+    @updated = Product.order("updated_at DESC").page(params[:page]).per(6)
+    @categories = Category.all
   end
 
   def search_results

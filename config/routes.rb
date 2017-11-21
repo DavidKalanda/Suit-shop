@@ -14,8 +14,12 @@ Rails.application.routes.draw do
 
   get 'contact', to: 'pages#contact', as:'contact'
 
+  get 'new', to: 'product#new', as:'new'
+
+  get 'updated', to: 'product#updated', as:'updated'
+
   get 'search_results' => 'product#search_results', as: 'search_results'
-  
+
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
