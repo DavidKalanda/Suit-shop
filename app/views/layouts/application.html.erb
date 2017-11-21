@@ -16,7 +16,7 @@
     <%= render partial: 'common/header'%>
     <div class="row">
       <%= yield %>
-      <%= render partial: 'common/sidebar'%>
+      <%= render partial: 'common/sidebar' unless @disable_sidebar%>
     </div>
     <%= render partial: 'common/footer'%>
   </body>
