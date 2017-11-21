@@ -7,6 +7,7 @@ class ProductController < ApplicationController
   def show
     @product= Product.find(params[:id])
     @categories = Category.all
+    @disable_sidebar = true
   end
 
   def new
