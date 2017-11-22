@@ -20,6 +20,11 @@
             <li>Consectetur</li>
             <li>Adipiscing Elit</li>
           </ul>
+          <%= button_to 'Add to Cart', cartAdd_path(@product.id), :class => "btn btn-default"%>
+          <!-- <%= select_tag "categories",
+                        options_from_collection_for_select(@categories, "id","name"),
+                        include_blank: true %>
+          <%= submit_tag "Search" %> -->
         </div>
 
       </div>

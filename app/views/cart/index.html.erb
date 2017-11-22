@@ -1,2 +1,9 @@
-<h1>Cart#index</h1>
-<p>Find me in app/views/cart/index.html.erb</p>
+<h1>Your cart</h1>
+<table>
+  <% @cart.each do |id,quantity| %>
+    <%item = Product.find(id)%>
+      <tr>
+        <td><%=item.name %></td>
+      </tr>
+  <%end%>
+</table>

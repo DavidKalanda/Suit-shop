@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  get 'cart/index'
 
-  get 'cart/add'
+  post 'cart/index', to: 'cart#index', as:'cartIndex'
+
+  post 'cart/add/:id', to: 'cart#add', as:'cartAdd', id: /\d+/
 
   get 'pages/about'
 
@@ -22,7 +23,7 @@ Rails.application.routes.draw do
 
   get 'updated', to: 'product#updated', as:'updated'
 
-  get 'search_results' => 'product#search_results', as: 'search_results'
+  get 'search_results', to: 'product#search_results', as: 'search_results'
 
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
