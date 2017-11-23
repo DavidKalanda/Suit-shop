@@ -20,11 +20,10 @@
             <li>Consectetur</li>
             <li>Adipiscing Elit</li>
           </ul>
-          <%= link_to 'Add to Cart', cartAdd_path(@product.id), method: :post, :class => "btn btn-default"%>
-          <!-- <%= select_tag "categories",
-                        options_from_collection_for_select(@categories, "id","name"),
-                        include_blank: true %>
-          <%= submit_tag "Search" %> -->
+          <!-- <%= link_to 'Add to Cart', cartAdd_path(@product.id), method: :post, :class => "btn btn-default"%> -->
+          <%=form_tag(cartAdd_path(@product.id), method: :post)%>
+            <input type=number value=1 name=quantity max=5 min=0  />
+          <%= submit_tag("Add to Cart")%>
         </div>
 
       </div>
