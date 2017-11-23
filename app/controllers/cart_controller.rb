@@ -1,22 +1,23 @@
 class CartController < ApplicationController
-  def index
-    @cart = session[:cart] || {}
-    @disable_sidebar = true
-  end
+  before_action :initialize_session
 
-  def add
-    id= params[:id]
-    session[:cart] << id unless session[:cart].include?(id)
-    cart[id] = (cart[id] || 0) + 1
+def add
+   @disable_sidebar = true
+  session[:cart] ||= {}
+  session[:cart][params[:id]] ||= 0
+  session[:cart][params[:id]] += 1
+  redirect_to action: "index"
+end
 
-    redirect_to action: "index"
-    @disable_sidebar = true
-  end
+def index
+   @disable_sidebar = true
+  session[:cart] ||= {}
+end
 
   private
 
   def initialize_session
-    session[:cart] += 1
-    @cart = session[:cart]
+    session[:cart] || []
+    # @cart = session[:cart]
   end
 end

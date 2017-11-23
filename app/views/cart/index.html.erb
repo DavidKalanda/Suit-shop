@@ -1,9 +1,14 @@
+<div class="container">
 <h1>Your cart</h1>
+<%= debug session[:cart] %>
 <table>
-  <% @cart.each do |id,quantity| %>
-    <%item = Product.find(id)%>
+  <% session[:cart].each do |id, q| %>
+    <%item = Product.where(:id => id).first%>
       <tr>
+        <td><%= image_tag item.image, :width =>100 %></td>
         <td><%=item.name %></td>
       </tr>
   <%end%>
 </table>
+
+</div>

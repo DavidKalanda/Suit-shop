@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  post 'cart/index', to: 'cart#index', as:'cartIndex'
+  get 'cart/index', to: 'cart#index', as:'cartIndex'
 
   post 'cart/add/:id', to: 'cart#add', as:'cartAdd', id: /\d+/
 
