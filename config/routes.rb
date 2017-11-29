@@ -4,11 +4,14 @@ Rails.application.routes.draw do
 
   post 'cart/add/:id', to: 'cart#add', as:'cartAdd', id: /\d+/
 
+  post '/update_quantity/:id', to: 'cart#update_quantity', as:'cartUpdate_quantity', id: /\d+/
+
   get 'pages/about'
 
   get 'pages/contact'
 
   root to: 'product#index' , as: 'home'
+
   get 'products', to: 'product#index', as:'products'
 
   get 'products/:id', to: 'product#show', as:'product', id: /\d+/

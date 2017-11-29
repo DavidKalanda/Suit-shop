@@ -1,22 +1,32 @@
 class CartController < ApplicationController
   before_action :initialize_session
 
-def add
-  params.permit(:id, :quantity)
-  quantity = params[:quantity]
-  @disable_sidebar = true
-  session[:cart] ||= {}
-  session[:cart][params[:id]] ||= 0
-  session[:cart][params[:quantity]] +=quantity
-  redirect_to action: "index"
-end
+  def add
+    @disable_sidebar = true
 
-def index
-   @disable_sidebar = true
-  session[:cart] ||= {}
-end
+    session[:cart] ||= {}
+    session[:cart][params[:id]] ||= 0
+    session[:cart][params[:id]] += 1
 
-  private
+    redirect_to action: "index"
+
+  end
+
+  def index
+    @disable_sidebar = true
+    session[:cart] ||= {}
+  end
+
+  def update_quantity
+    @quantity = params[:quantity]
+    session[:cart] ||= {}
+    session[:cart][params[:id]] ||= 0
+    session[:cart][params[:id]] = @quantity
+    redirect_to action: "index"
+  end
+
+
+private
 
   def initialize_session
     session[:cart] ||= {}
