@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171129153528) do
+ActiveRecord::Schema.define(version: 20171129171430) do
 
   create_table "abouts", force: :cascade do |t|
     t.string "description"
@@ -70,7 +70,19 @@ ActiveRecord::Schema.define(version: 20171129153528) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "order_id"
+    t.string "email", default: "", null: false
+    t.string "encrypted_password", default: "", null: false
+    t.string "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer "sign_in_count", default: 0, null: false
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string "current_sign_in_ip"
+    t.string "last_sign_in_ip"
+    t.index ["email"], name: "index_customers_on_email", unique: true
     t.index ["order_id"], name: "index_customers_on_order_id"
+    t.index ["reset_password_token"], name: "index_customers_on_reset_password_token", unique: true
   end
 
   create_table "line_items", force: :cascade do |t|
@@ -84,7 +96,6 @@ ActiveRecord::Schema.define(version: 20171129153528) do
     t.integer "amount"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.date "order_id"
     t.integer "customer_id"
     t.index ["customer_id"], name: "index_orders_on_customer_id"
   end

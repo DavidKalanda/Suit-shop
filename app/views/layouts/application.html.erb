@@ -20,6 +20,7 @@
     <div class="row">
       <%= yield %>
       <%= render partial: 'common/sidebar' unless @disable_sidebar%>
+      <!-- <%= render partial: 'common/sidebar' ,collection:@categories unless @disable_sidebar%> -->
     </div>
     <%= render partial: 'common/footer'%>
   </body>
