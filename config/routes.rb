@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :views
   get 'cart/index', to: 'cart#index', as:'cartIndex'
 
   post 'cart/add/:id', to: 'cart#add', as:'cartAdd', id: /\d+/
