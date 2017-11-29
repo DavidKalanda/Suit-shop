@@ -6,11 +6,15 @@
     <%item = Product.where(:id => id).first%>
       <tr>
         <td width="50"><%= image_tag item.image, :width =>100 %></td>
-        <td width="50"><%=item.name %></td>
+        <td><%=item.name %></td>
         <td>
           <%=form_tag(cartUpdate_quantity_path(id), method: :post)%>
             <input type=number value=<%=quantity%> name=quantity max=5 min=0  />
           <%= submit_tag("Update Quantity")%>
+        </td>
+        <td>
+          <%=form_tag(delete_order_path(id), method: :post)%>
+          <%= submit_tag("Delete order")%>
         </td>
         <td><%=quantity%></td>
       </tr>

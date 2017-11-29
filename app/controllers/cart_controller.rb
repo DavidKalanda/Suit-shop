@@ -25,6 +25,10 @@ class CartController < ApplicationController
     redirect_to action: "index"
   end
 
+  def delete_order
+    
+  end
+
 
 private
 

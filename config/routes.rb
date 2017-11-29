@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 
   post '/update_quantity/:id', to: 'cart#update_quantity', as:'cartUpdate_quantity', id: /\d+/
 
+  post '/delete_order/:id', to: 'cart#delete_order', as:'delete_order', id: /\d+/
+
   get 'pages/about'
 
   get 'pages/contact'
