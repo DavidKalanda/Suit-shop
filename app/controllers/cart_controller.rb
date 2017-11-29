@@ -26,8 +26,8 @@ class CartController < ApplicationController
   end
 
   def delete_order
-    session[:cart].except!(parms[:id])
-    redirect_to cart_path
+    session[:cart].except!(params[:id])
+    redirect_to action: "index"
   end
 
 
