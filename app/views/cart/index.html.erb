@@ -7,6 +7,7 @@
       <tr>
         <td width="50"><%= image_tag item.image, :width =>100 %></td>
         <td><%=item.name %></td>
+        <td><%=item.price * quantity%></td>
         <td>
           <%=form_tag(cartUpdate_quantity_path(id), method: :post) do%>
             <input type=number value=<%=quantity%> name=quantity max=5 min=0  />
@@ -22,5 +23,6 @@
       </tr>
   <%end%>
 </table>
+
 
 </div>

@@ -18,7 +18,7 @@ class CartController < ApplicationController
   end
 
   def update_quantity
-    @quantity = params[:quantity]
+    @quantity = params[:quantity].to_i
     session[:cart] ||= {}
     session[:cart][params[:id]] ||= 0
     session[:cart][params[:id]] = @quantity
