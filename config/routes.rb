@@ -1,9 +1,12 @@
 Rails.application.routes.draw do
 
   devise_for :customers
-  devise_for :views
-  
+
+  resources :charges
+
   get 'cart/index', to: 'cart#index', as:'cartIndex'
+
+  get 'cart/checkout', to: 'cart#checkout', as:'checkout'
 
   post 'cart/add/:id', to: 'cart#add', as:'cartAdd', id: /\d+/
 

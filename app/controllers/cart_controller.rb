@@ -15,6 +15,13 @@ class CartController < ApplicationController
   def index
     @disable_sidebar = true
     session[:cart] ||= {}
+    @products = session[:cart]
+    @total_price = 0
+    @products.each do |id, quantity|
+      item = Product.where(:id => id).first
+      @total_price += item.price * quantity
+    end
+    session[:total_price] = @total_price*100
   end
 
   def update_quantity
@@ -30,11 +37,9 @@ class CartController < ApplicationController
     redirect_to action: "index"
   end
 
-
 private
 
   def initialize_session
     session[:cart] ||= {}
-    # @cart = session[:cart]
   end
 end

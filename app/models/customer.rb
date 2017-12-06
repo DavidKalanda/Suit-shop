@@ -5,5 +5,5 @@ class Customer < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
   has_many :orders
   belongs_to :province
-  validates :name, :password, :address, :province, presence:true
+  validates :name, :password, :address, :province_id, presence:true
 end
